@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 
 /**
+*a payment type, CreditCard
 *@author achiang31
 */
 

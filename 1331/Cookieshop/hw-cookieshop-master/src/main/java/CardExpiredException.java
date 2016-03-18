@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 /**
+*exception thrown when expire date is earlier than current date
 *@author achiang31
 */
 public class CardExpiredException extends PaymentFailedException {

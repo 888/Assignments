@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 /**
+*adds cookies to cart and pays for them
 *@author achiang31
 */
 

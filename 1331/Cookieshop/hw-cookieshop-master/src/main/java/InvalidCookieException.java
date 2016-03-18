@@ -1,4 +1,5 @@
 /**
+*exception thrown when an invalid cookie is selected
 *@author achiang31
 */
 

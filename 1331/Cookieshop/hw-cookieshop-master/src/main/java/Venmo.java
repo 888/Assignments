@@ -1,5 +1,6 @@
 /**
-*@author <achiang31>
+*a payment type, Venmo, an alternative to credit card
+*@author achiang31
 */
 
 public class Venmo implements PaymentMethod {

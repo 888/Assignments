@@ -1,4 +1,5 @@
 /**
+*thrown when user doesn't have enough money
 *@author achiang31
 */
 

@@ -1,4 +1,5 @@
 /**
+*an abstract Card class, extended by CreditCard
 *@author achiang31
 */
 public abstract class Card implements PaymentMethod {

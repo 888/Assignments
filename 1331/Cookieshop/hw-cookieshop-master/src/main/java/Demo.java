@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Demo {
     /**
-    * the main method
+    * the main method, demonstrating functionality of cookieshop
     *@param args    the default String array, args
     */
     public static void main(String[] args) {
