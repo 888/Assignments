@@ -1,0 +1,88 @@
+Substitute HashSet for MySet and CoinBook to test 
+
+
+
+
+MySet
+
+1. The class MySet has its own equals method, but do we also need to override Object's equals method (b/c it is used in contains method to check if two Objects/Coins are equal, etc).
+	Yes, override equals methods for set in MySet, override equals methods for Objects in Coin or w/e the class is. Done
+2. Constructor for MySet? Is it the backingArray? (b/c need to instantiate new double-size Array when indexes are full)
+	Yes Done
+3. Can the clear() method just set all elements to null?
+	Yes Done
+
+4. When and how to use Iterator (addAll, containsAll........?)
+	Use foreach loops Done
+
+6. Is it alright to implement remove() method so that it sets element to null? Should indices be shifted?
+	Yes fill in gap Done
+
+7. Are the "if (..... != null) conditionals necessary or can I just try and execute and let a NullPointerException be thrown automatically? Or should I add an "else" and explicitly throw one?
+	Unnecessary Done
+
+8. How to check all the elements in Iterator? Do I just have to explicitly call the [0] index? because hasNext and next will start with [1] index.
+	use foreach Done
+
+9. How to do toArray? .clone() method? Or should we write a deepcopy function ourselves?
+	Dont need to copy the actual Objects in the array, just copy references in a new Array Done
+
+PENDING
+
+10. Compiler yells at me about the foreach loop and c.toArray() being filled with Objects, T incompatible with Object, can just use for (Object element : c)?
+
+11. Because of #10, T and Object incompatible in add(), can just cast element as T?
+
+
+MySet Tester
+
+1. Can use Arrays for addAll, containsAll methods (b/c used in given code), but HW 5 docs say not to use Arrays?
+	Fine
+
+Coin
+1. Should the given method hashCode() have a javadoc? 
+	NO
+
+Penny, Nickel, Dime
+
+1. Should penny, quarter, dime, etc, have any instance variables at all?
+NO
+
+2. Shoudl they have anything else besides a constructor and a toString() method? 
+	NO
+
+Quarter
+
+1. How to compare which state comes earlier in the alphabet? 
+ENUM
+
+2. How to find other's state? Should we have a getter method for state?
+Yes
+
+3. How to override compareTo method to account for non-Quarter coins?
+super
+
+MagicCoin
+
+1. How to limit user input for value to between 26 and 100? 
+Done 
+
+CoinBook
+
+1. How to format constructor, and initialize the Set/MySet coinBook?
+	Done 
+
+2. Connection between type T and type Coin? Can Coinbook use methods from MySet? (add, remove, etc) 
+	T is placeholder 
+3. Does CoinBook implement Comparator? 
+	No, use inner class
+4. Should CoinBook import List? 
+	Yes
+5. How to implement sortByValue and sortByYear methods?
+
+6. How to implement toString() method?
+
+7. The huge amount of casting in sortByValue? 
+	N/A
+
+8. The huge number of import statements? 

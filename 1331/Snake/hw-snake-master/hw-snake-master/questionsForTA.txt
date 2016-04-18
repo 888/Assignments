@@ -1,0 +1,65 @@
+SnakeGame
+
+setupStartScene()
+
+1. How to set Normal RadioButton as default in setupStartScene() method? 
+	setSelected(true) for normalDiff and false for the other two?, Resolved
+
+2. What do we call the setupStartScene(), play() methods on? 
+	Nothing? 
+
+3. Spacing between children for HBox and VBox?
+	set to 10.0, arbitrary 
+
+4. How to center the VBox on the screen? (centering children within VBox is ez$$ but no method for VBox within screen) 
+	Use setAlignment(), Resolved
+
+start()
+
+1. Many runtime exceptions b/c of line 72?? "window.setScene(this.startScene);" 
+	Resolved
+
+setupGameScene()
+1. How to implement the lambda expression for w, a, s, d? 
+
+	1a. Use .equals() or == for w, a,s,d with getText() method? 	
+	
+	1b. Import model.Snake to use its setDirection() method? 
+
+	1c. Use getText() or getCode()? Or both?.
+
+2. Add the background Rectangle to Group gameSceneParent? (hw docs said to add to gameScene but gameScene doesn't have getChildren()) 
+
+3. How to change direction of Snake without instantiating one? Should we create an instance of Snake? 
+	Use GameWorld world, Resolved 
+
+4. Bounds on the game when playing? I can just run off the edge and keep going. 
+
+
+setupScoreScene()
+
+1. How to make sure players can edit usernames in ListView<Nodes>? 
+'(the Node for their username should be a TextField instead of a Label)'
+
+	1a. How to convert Strings (read from the file) into Nodes and Integers so they can be put in ObservableLists and then added to ListViews? 
+	Use nodes, TextFields, getChildren()	
+
+2. Username and UserScore? Are they initialized? Should we do it? 
+	Done 
+3. Can we assume that the users/scores in resources are sorted in descending order? (they are currently, can we assume that will always be the case)
+	Yes
+
+4. How to check if a node whose TextField is Username is already contained? Is just checking userScore good enough? What about tied scores? 
+	Dont worry about ties 
+
+5. How to write to a file? (many ways, which to use here) 
+
+6. How do we access Label or TextField when they are children of a Node?!? Can't use getText() without accessing them first. 
+	instanceof and cast appropriately 
+
+8. Fill the ObservableList<Node> with Group objects? 
+	Can do it like that, or can use Label/TextField objects directly since they are subclasses of Group 
+
+
+
+
