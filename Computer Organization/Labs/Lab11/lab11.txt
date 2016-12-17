@@ -1,0 +1,143 @@
+CRASH COURSE ON LC-3 DATAPATH
+
+Many of you are probably still a little iffy on how the LC-3 functions. Well that ends here!
+
+In today's lab, we want to help you learn how the LC-3 datapath works. But in order to understand the State Machine, you have to become the State Machine.
+
+
+=========================
+Part 1 - Let's play FETCH
+=========================
+
+There is a very important operation done in all processors known as "FETCH." FETCH retrieves the next instruction to be executed and puts it somewhere to be decoded, and later executed.
+
+On the LC-3, this is done using two crucial registers: The Program Counter (PC) and the Instruction Register (IR).
+
+	The PC holds the ADDRESS of the next instruction to be executed.
+
+	The IR holds the currently executing instruction.
+
+Now, wait a minute, you might say, where are all these instructions coming from anyhow?
+
+The instructions are held in memory. So, what we have to do is retrieve them from RAM using the Memory Address Register (MAR) to specify where to look, and the Memory Data Register (MDR) to get the data out.
+
+Don't worry, we won't ask much of you on this one. We'll walk you through it.
+
+	1. Follow the setup procedure located in the README.txt file
+	(1.5 DO NOT PRESS THE RESET BUTTON)
+	2. Locate the PC, IR, MAR, and MDR.
+
+	3. Turn the GatePC input on.
+	4. Turn the LDMAR input on (recall this is just a write-enable).
+	5. Tick the CLK once (on-off)
+	
+	See what happened? You moved the hex value x3000 from the PC to the MAR!
+	Now, let's feed that into the memory component.
+
+	6. Turn off all the inputs you turned on before.
+	7. Turn on the MEM.EN input to enable the memory output.
+	8. Turn on the LDMDR input.
+	9. Tick the CLK once.
+
+	Now we have retrieved the value at x3000 and put it into the MDR.
+	All that is left to do is put that value into the IR.
+	
+	10. Turn off all the inputs you turned on in the last part.
+	11. Turn on the GateMDR input.
+	12. Turn on the LDIR input.
+
+	We're ready to tick the clock and finish this, right?
+	Well, not exactly.
+	Remember, the PC is supposed to point to the address of the NEXT instruction.
+	So we need to increment the PC. 
+	Don't worry, though, see the little adder next to the PC?
+	That's what it's for.
+	
+	13. Set the PCMUX input to 00 (this selects the incrementer).
+	14. Turn on the LDPC input.
+	15. Tick the CLK once.
+
+Congratulations! You just performed FETCH. You're well on your way to being a state machine now!
+
+Take note of the three sections above (3-5, 6-9, 10-15). Each of these is ONE clock cycle.
+
+We can represent these signals like so:
+
+CLK 1: GatePC, LDMAR;
+CLK 2: MEM.EN, LDMDR;
+CLK 3: GateMDR, LDIR, PCMUX=0, LDPC;
+
+Note that PCMUX=0 can also be said as PCMUX=increment, for readability.
+
+=================
+Part 2: Registers
+=================
+
+The LC-3 has 8 general-purpose registers (technically only 7 of them are completely free to use, but you'll find that out later). These registers can be used for anything you like in your program, so we'll need a way to move data around in the registers.
+
+Locate the register file on the top right of the datapath. 
+
+Use the poke tool to click on the value of register 0, and type in a number to make it whatever you like.
+
+What we're going to try to do is move (or rather, copy) that value to register 1.
+
+	You'll notice that the only outputs of the register file go to the ALU.
+	We will have to go through the ALU to get the value onto the bus.
+
+	1. Set ALUK to 11 (this pushes the A input through unmodified)
+	2. Turn on GateALU
+	3. Set Destination Register (DR) to 001
+	4. Turn on LDREG
+	5. Tick the CLK once
+
+That was easy. That only took one clock cycle!
+
+CLK 1: ALUK=11, GateALU, DR=001, LDREG;
+
+So why did moving data from memory to the IR take 3 cycles, if moving data between registers only took one?
+
+Well, you can only put one value onto the bus at a time. That means you can only load one value FROM the bus at a time, and load operations are synchronized with the CLK signal. So, you can only load from the bus once per cycle. In general, you will notice that load operations happen once per cycle, excluding some cases like incrementing the PC.
+
+Look at the first example: you have to load into the MAR, then the MDR, then the IR. That's 3 registers you have to go through, and 3 loads to get data from memory into the IR.
+
+In the second example, you only have to load one register: the destination register in the register file.
+
+
+========================
+Part 3: Operating an ALU
+========================
+
+If you want to be a good replacement state machine for the LC-3, you're going to need to know how to use the ALU.
+
+The ALU takes 2 inputs, A and B, and outputs based on the following opcodes:
+
+00 - ADD
+01 - AND
+10 - NOT
+11 - MOV (as seen in the last example, this is outputs A)
+
+You will notice that the B input has a MUX on it that can either select the SR2OUT from the register file, or a sign-extended value from the IR. This is for using values encoded in the instruction. In this assignment, you will only be using the SR2OUT value, which means you need to set SRC2MUX=1.
+
+Since we've walked you through the first two, try doing this one on your own:
+
+You need to take the value in R0, add it to the value in R1, and store it in R2.
+
+How can we represent this in the signal notation used in the first two examples?
+
+CLK 1: ALUK=00, SRC1=000, SRC2=001, DR=010, LDREG, SRC2MUX=1, GATEALU
+
+
+==========
+Conclusion
+==========
+
+So maybe you might not want your future career in being a state machine. But, you're one step closer to understanding what it's like.
+
+We encourage you to experiment more with the various signals to try to do different things!
+
+For instance:
+	- Load the PC from a value in a register
+	- Load the PC from a place in memory specified by a value in a register
+	- Add two values from registers and store them at a place in memory specified by a value in a register
+
+If you have any questions, ask away!

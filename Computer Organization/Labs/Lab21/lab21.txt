@@ -1,0 +1,131 @@
+===============================================================================
+CS2110                             Lab #21                            Fall 2016
+===============================================================================
+ 
+Don't hesitate to ask the TA's for help. If you are stuck on
+one part, or not clear about what it's asking, feel free to
+ask. Remember, we are here to help you :)
+
+This is not a timed lab so talk with your friends, use the book, etc.
+
+
+Part I - Copying
+----------------
+1.  Examine the following structure:
+
+typedef struct
+{
+    int x;
+    char* y;
+} something;
+
+
+Examine this function that copies this structure into the dest parameter
+
+
+void copy_struct(const something* src, something* dest)
+{
+    dest->x = src->x;
+    dest->y = malloc(sizeof(char) * 6);
+    dest->y[0] = src->y[0];
+    dest->y[1] = src->y[1];
+    dest->y[2] = src->y[2];
+    dest->y[3] = src->y[3];
+    dest->y[4] = src->y[4];
+    dest->y[5] = src->y[5];
+
+}
+
+void main(void)
+{
+    something a, b;
+    a.x = 32;
+    a.y = malloc(sizeof(char) * 6);
+    a.y[0] = 'H';
+    a.y[1] = 'E';
+    a.y[2] = 'L';
+    a.y[3] = 'L';
+    a.y[4] = 'O';
+    a.y[5] = '\0';
+
+
+    copy_struct(&a, &b);
+    printf("a.x = %d, a.y = %s, b.x = %d, b.y = %s\n", a.x, a.y, b.x, b.y);
+    a.x = 27;
+    a.y[0] = 'J';
+    printf("a.x = %d, a.y = %s, b.x = %d, b.y = %s\n", a.x, a.y, b.x, b.y);
+
+    free(a.y);
+}
+
+
+A. Note that there is a problem with this code. Explain what the problem is. What gets printed out?  Explain why in your own words.
+The function void copy_struct(const something* src, something*dest) does not perform any permanent operation. The copying of the array that it does is done on the stack, so as soon as the function terminates, dest->y != src->y. 
+
+
+B. Now your boss walks in pissed and gives you 30 minutes to fix the above problem or you will be immediately terminated.
+   Change only the copy_struct function so that the problem in the above code does not happen!
+
+C. Suppose if the "something" structure was changed to be the following
+
+typedef struct
+{
+    int x;
+    char y[6];
+} something;
+
+and the line
+
+  a.y = malloc(sizeof(char) * 6);
+
+was removed, and the copy_struct function was the same as in part a.
+
+Now tell me what gets printed out and why in your own words.
+The original contents of a are printed out twice. (HELLO, HELLO)
+
+
+
+
+D.  Now explain the terms "shallow copy" and "deep copy" in terms of parts a and b.
+A shallow copy only copies the reference pointer, so that there are two pointers pointing to the same object. This is what occurs in part a.
+A deep copy creates a new object with identical data as the first object. This is what occurs in part b. 
+
+
+
+
+Part II - sizeof
+----------------
+What is the sizeof each of these things? Quickly! Do not use the book or a TA.
+Tell me what (you think) the sizes of these things are.
+
+1. char 1 byte
+2. short 2 bytes
+3. int 4 bytes
+4. long 8 bytes 
+5. char* 4 bytes
+6. int* 4 bytes
+7. void* 4 bytes
+8. int** 4 bytes
+9. this structure: struct p {char a; char b;}; 6 bytes  
+10. this structure: struct p {short p; char a; int b;}; 11 bytes
+
+Now write a C program (named sizeof.c) that tells us the size of each of these
+using the sizeof keyword and the printf function.
+
+
+E. How many of these did you get right?
+4, the primitive types but not the pointers or structs.
+
+
+
+
+
+F. Why shouldn't you hardcode the sizes of the variable types?
+
+Because the sizes change behind the scenes in order to accomodate additions/removals of pointers or elements. 
+
+
+
+
+Save your answers as lab21.txt and turn them in by the end of lab.
+

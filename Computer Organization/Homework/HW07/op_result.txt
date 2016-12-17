@@ -1,0 +1,146 @@
+Test suite report for file operations.asm
+-------------------------------------
+
+Failed Test case - XOR(12345, 26789) = 1 6 / 8 
+----------------------
+1 (F 6 / 8) Answer 22684 calling convention followed
+  expected (right): 0x8742 0x2021 0xcafe 0x5000 0x589c 0x3039 0x68a5  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x2021 0x8742 0xcafe 0x5000 0x589c 0x3039 0x68a5  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 12345 param found on stack +1
+      [+] 26789 param found on stack +1
+      [+] -30910 local found on stack +1
+      [+] 8225 local found on stack +1
+      Found 2 structural mistakes in stack -2
+
+Failed Test case - XOR(7, 4) = 3 6 / 8 
+----------------------
+1 (F 6 / 8) Answer 3 calling convention followed
+  expected (right): 0xfff8 0x4 0xcafe 0x5000 0x3 0x7 0x4  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x4 0xfff8 0xcafe 0x5000 0x3 0x7 0x4  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 7 param found on stack +1
+      [+] 4 param found on stack +1
+      [+] -8 local found on stack +1
+      [+] 4 local found on stack +1
+      Found 2 structural mistakes in stack -2
+
+Passed Test case - MULT(123, 45) = 5535 7 / 7 
+----------------------
+1 (P 7 / 7) Answer 5535 calling convention followed
+  expected (right): 0x159f 0xcafe 0x4000 0x159f 0x2d 0x7b  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0x159f 0xcafe 0x4000 0x159f 0x2d 0x7b  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 45 param found on stack +1
+      [+] 123 param found on stack +1
+      [+] 5535 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Failed Test case - MULT(12, 0) = 0 5 / 7 
+----------------------
+1 (F 5 / 7) Answer 0 calling convention followed
+  expected (right): 0x0 0xcafe 0x4000 0x0 0xc 0x0  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0xc 0xcafe 0x4000 0xc 0xc 0x0  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 12 param found on stack +1
+      [-] 0 param found on stack -1
+      [-] 0 local found on stack -1
+      All locals were not found, so locals aren't included in structure check
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - MULT(0, 12) = 0 7 / 7 
+----------------------
+1 (P 7 / 7) Answer 0 calling convention followed
+  expected (right): 0x0 0xcafe 0x4000 0x0 0x0 0xc  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0x0 0xcafe 0x4000 0x0 0x0 0xc  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 0 param found on stack +1
+      [+] 12 param found on stack +1
+      [+] 0 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - DIV(123, 4) = 30 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 30 calling convention followed
+  expected (right): 0xcafe 0x4000 0x1e 0x7b 0x4  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0xcafe 0x4000 0x1e 0x7b 0x4  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 123 param found on stack +1
+      [+] 4 param found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - DIV(4, 123) = 0 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 0 calling convention followed
+  expected (right): 0xcafe 0x4000 0x0 0x4 0x7b  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0xcafe 0x4000 0x0 0x4 0x7b  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 4 param found on stack +1
+      [+] 123 param found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - MOD(123, 4) = 3 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 3 calling convention followed
+  expected (right): 0xcafe 0x4000 0x3 0x7b 0x4  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0xcafe 0x4000 0x3 0x7b 0x4  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 123 param found on stack +1
+      [+] 4 param found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - MOD(120, 4) = 0 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 0 calling convention followed
+  expected (right): 0xcafe 0x4000 0x0 0x78 0x4  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0xcafe 0x4000 0x0 0x78 0x4  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 120 param found on stack +1
+      [+] 4 param found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - MOD(17, 17) = 0 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 0 calling convention followed
+  expected (right): 0xcafe 0x4000 0x0 0x11 0x11  r5: 0xcafe r6: 0xeffd r7: 0x4001
+    actual  (left): 0xcafe 0x4000 0x0 0x11 0x11  r5: 0xcafe r6: 0xeffd r7: 0x4001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 17 param found on stack +1
+      [+] 17 param found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Summary
+-------
+Checks passed: 7 / 10
+Tests passed: 7 / 10
+Grade: 61 / 67

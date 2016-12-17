@@ -1,0 +1,5 @@
+1. To divide a multi-bit input into several (single or multi-bit) outputs which can be individually evaluated. Also to combine multiple (single or multi-bit) inputs into a single multi-bit output which can then be collectively evaulated.
+2. To simplify the Logisim circuits, by replacing wires and thereby reducing the visual clutter. 
+3. Output of 010 is 0. Output of 100 is 0. 
+3a. My circuit is arranged such that the bottom two wires connect to the AND, instead of the top two like in the screenshots.
+3b. If my circuit was wired exactly like the screenshots, output of 010 would be 0 and output of 100 would be 1. 

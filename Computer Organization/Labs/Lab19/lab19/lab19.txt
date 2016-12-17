@@ -1,0 +1,174 @@
+
+CS2110                             Lab 19                           Fall  2016
+===============================================================================
+ 
+Objectives: 
+==========
+
+* Understand the steps involved in compiling code manually.
+
+* Understand the basics of Makefiles and be able to create and modify
+  Makefiles
+ 
+Part 1 - Breaking Down GCC
+--------------------------
+
+So far in this course you have been compiling code using Makefiles that we
+have provided for you. We will be creating our own Makefile, but first we
+will go into greater detail of the process that occurs when you use gcc
+to compile your code.
+
+When you run gcc to compile your code it is actually running  several 
+stages of compilation to finally result in a program that you are able
+to run on your computer.
+
+These stages are:
+
+1. Preprocessing
+2. Compiling
+3. Assembling
+4. Linking
+
+We are going to go through each of these steps separately so that you can get
+a better understanding of what is happening when you run gcc. This lab is
+intended to be interactive. You should be running each of the commands in the
+terminal as well as inspecting the files that are generated using a text editor.
+
+The first stage is the preprocessor. This stage expands macros and pastes
+the contents of header files into the C file. Normally this process is done
+as an intermediate step by the compiler.
+
+As is true for most of the stages of compiling there are actually two ways for
+you to run this step on your computer. One is to use gcc with flags to stop
+it from continuing to the next stage, the other is to use a dedicated program.
+
+    cpp hello.c hello.i
+            or
+    gcc -E hello.c -o hello.i
+
+Inspect the hello.i file. You'll notice that now it includes all of the
+contents of the stdio.h header file.
+
+Modify hello.c so that it does not include a header file but it is still able
+to successfully compile. Include this modified file in your submission.
+Hint: What is it that we actually need from including the stdio.h file? It's only a single line.
+
+Now we will do the actual compilation process of converting the intermediate
+C code into assembly.
+
+    gcc -S hello.i -o hello.s
+
+Open up the hello.s and look at the code inside the main routine. Notice
+that it doesn't call printf instead it's calling a different function.
+
+What function is it calling and why does this happen?
+Response: PUTS, because it's printing to console
+
+Now let's continue compiling the code. This is the assembling stage. We
+will be converting the program from an assembly file into an object file.
+Object files contain machine code that your computer is capable of running,
+however your OS cannot run object files because they are missing several
+important parts of the program as we will see later.
+
+    gcc -c hello.s -o hello.o
+            or
+    as hello.s -o hello.o
+
+Finally we will link the object file into an executable that we are able to
+run on our computer. The linker combines multiple object files into a single
+executable that your computer is able to run.
+
+    gcc hello.o -o hello
+            or
+    ld --dynamic-linker /lib64/ld-linker-x86-64.so.2 /usr/lib/x86_64-linux-gnu/crt*.o hello.o -lc
+
+Let's break down the second command. First we are specifying the dynamic linker
+for now we'll ignore this. Next we are including multiple crt.o files or C
+runtime files. These files contain code that is necessary for every C
+program. It sets up the stack and calls `main()` as well as a few other
+things.
+
+Note where we are calling the linker `ld` directly we are manually specifying
+the dynamic linker and the location of the C runtime files as well as including
+the C standard library using . This command may differ depending on what
+version of your OS you have so you may have to run the `gcc` command to compile it.
+
+Let's compare the contents of hello.o and hello using a program called objdump.
+We will dump out the contents of our hello.o and compare that to the dumped
+output of our compiled program.
+
+    objdump -d hello.o
+            and
+    objdump -d hello
+
+Which of the objdump commands above produces more output? Why?
+Response: The 2nd, because it is an executable which is created by the linker through combining multiple object files. hello.o is only a single object file.
+
+Alright by now you have manually completed each of the steps that gcc does
+when you run the following command:
+    
+    gcc -o hello hello.c
+
+Next we'll put all of those pieces together for creating our own Makefile.
+
+Part 2 - Building a Makefile
+----------------------------
+
+Make is a commonly used tool for building software. Many software projects
+use make to compile their code. A Makefile consists of  a series of targets
+and corresponding recipes. The following is the format that Makefiles must be
+in note that Makefiles are very picky about whitespace and require that
+there is a tab before each recipe line (not 4 or any number of spaces).
+
+##############################
+# Makefile
+
+target: prerequisites ...
+	recipe
+	...
+	...
+
+target2: prerequisites ...
+	recipe
+	...
+	...
+##############################
+
+* Create a makefile for the above example above
+* Adapt to be more general using variables and automatic variables
+* Adapt Makefile for a software project
+
+When you just type `make` in your terminal make will search for a Makefile
+if one exists then it searches for the first rule and make will follow the
+recipe for building that program. If one of the prerequisites is missing
+then it will build that prerequisite first. Note that if you type `make target`
+it will build the target that you have specified.
+
+We have supplied you with a Makefile with no recipes or dependencies filled out.
+It is your job to fill out each recipe in order to build the program. Do not
+write it in a single rule. Fill out the rules provided. Make sure to submit this
+file.
+
+Makefiles can support variables and have several other useful features
+such as automatic variables and default rules. Take a look at the Makefiles
+we give you for building GBA assignments to see usage of automatic variables.
+
+Default rules are a series of predefined rules that you don't need a Makefile
+to use. For example try this out the following commands:
+
+    mkdir temp
+    cp hello.c temp
+    cd temp
+    make hello
+    ls
+
+For more on make see: <https://www.gnu.org/software/make/manual/make.html>
+
+Submission
+----------
+When you finish, archive and submit the following files to T-Square:
+
+* lab19.txt
+* hello.c
+* Makefile
+

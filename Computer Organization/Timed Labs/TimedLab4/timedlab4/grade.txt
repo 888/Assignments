@@ -1,0 +1,73 @@
+Test suite report for file gcd.asm
+-------------------------------------
+
+Passed Test case - gcd(47,47) 20 / 20 
+----------------------
+1 (P 20 / 20) Answer 47 calling convention followed
+  expected (right): 0xcafe 0x5000 0x2f 0x2f 0x2f  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x2f 0x2f 0xcafe 0x5000 0x2f 0x2f 0x2f  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +3
+      [+] r6 points to r6-1 (answer location) +3
+      [+] r7 found on stack and r7 not clobbered +3
+      [+] r5 found on stack and r5 not clobbered +3
+      [+] 47 param found on stack +4
+      [+] 47 param found on stack +4
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - gcd(37,600) 20 / 20 
+----------------------
+1 (P 20 / 20) Answer 1 calling convention followed
+  expected (right): 0xcafe 0x5000 0x1 0x25 0x258  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x5000 0x5000 0x25 0x258 0xcafe 0x5000 0x1 0x25 0x258  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +3
+      [+] r6 points to r6-1 (answer location) +3
+      [+] r7 found on stack and r7 not clobbered +3
+      [+] r5 found on stack and r5 not clobbered +3
+      [+] 37 param found on stack +4
+      [+] 600 param found on stack +4
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - gcd(225,25) 20 / 20 
+----------------------
+1 (P 20 / 20) Answer 25 calling convention followed
+  expected (right): 0xcafe 0x5000 0x19 0xe1 0x19  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x5000 0x5000 0xe1 0x19 0xcafe 0x5000 0x19 0xe1 0x19  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +3
+      [+] r6 points to r6-1 (answer location) +3
+      [+] r7 found on stack and r7 not clobbered +3
+      [+] r5 found on stack and r5 not clobbered +3
+      [+] 225 param found on stack +4
+      [+] 25 param found on stack +4
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - gcd(16,218) 20 / 20 
+----------------------
+1 (P 20 / 20) Answer 2 calling convention followed
+  expected (right): 0xcafe 0x5000 0x2 0x10 0xda  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x5000 0x5000 0x10 0xda 0xcafe 0x5000 0x2 0x10 0xda  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +3
+      [+] r6 points to r6-1 (answer location) +3
+      [+] r7 found on stack and r7 not clobbered +3
+      [+] r5 found on stack and r5 not clobbered +3
+      [+] 16 param found on stack +4
+      [+] 218 param found on stack +4
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - gcd(0,0) 20 / 20 
+----------------------
+1 (P 20 / 20) Answer 0 calling convention followed
+  expected (right): 0xcafe 0x5000 0x0 0x0 0x0  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x0 0x0 0xcafe 0x5000 0x0 0x0 0x0  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +3
+      [+] r6 points to r6-1 (answer location) +3
+      [+] r7 found on stack and r7 not clobbered +3
+      [+] r5 found on stack and r5 not clobbered +3
+      [+] 0 param found on stack +4
+      [+] 0 param found on stack +4
+      Found no structural mistakes in the stack.  No changes needed.
+
+Summary
+-------
+Checks passed: 5 / 5
+Tests passed: 5 / 5
+Grade: 100 / 100

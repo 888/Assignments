@@ -1,0 +1,94 @@
+Test suite report for file palindrome.asm
+-------------------------------------
+
+Passed Test case - Length("a") = 1 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 1 calling convention followed
+  expected (right): 0x61 0xcafe 0x5000 0x1 0x3801  r5: 0xcafe r6: 0xeffe r7: 0x5001
+    actual  (left): 0x61 0xcafe 0x5000 0x1 0x3801  r5: 0xcafe r6: 0xeffe r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 14337 param found on stack +1
+      [+] 97 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - Length("heLLoWoRLD!!1") = 13 6 / 6 
+----------------------
+1 (P 6 / 6) Answer 13 calling convention followed
+  expected (right): 0x68 0xcafe 0x5000 0xd 0x3801  r5: 0xcafe r6: 0xeffe r7: 0x5001
+    actual  (left): 0x68 0xcafe 0x5000 0xd 0x3801  r5: 0xcafe r6: 0xeffe r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 14337 param found on stack +1
+      [+] 104 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - Palindrome("zAaZ") 8 / 8 
+----------------------
+1 (P 8 / 8) Answer 1 calling convention followed
+  expected (right): 0x5a 0x5a 0xcafe 0x5000 0x1 0x3801 0x3804  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x5a 0x5a 0xcafe 0x5000 0x1 0x3801 0x3804  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 14337 param found on stack +1
+      [+] 14340 param found on stack +1
+      [+] 90 local found on stack +1
+      [+] 90 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - Palindrome("zAbafbaZ") 8 / 8 
+----------------------
+1 (P 8 / 8) Answer 0 calling convention followed
+  expected (right): 0x5a 0x5a 0xcafe 0x5000 0x0 0x3801 0x3808  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x5a 0x5a 0xcafe 0x5000 0x0 0x3801 0x3808  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 14337 param found on stack +1
+      [+] 14344 param found on stack +1
+      [+] 90 local found on stack +1
+      [+] 90 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - Palindrome("aAcaZ") 8 / 8 
+----------------------
+1 (P 8 / 8) Answer 0 calling convention followed
+  expected (right): 0x5a 0x41 0xcafe 0x5000 0x0 0x3801 0x3805  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x5a 0x41 0xcafe 0x5000 0x0 0x3801 0x3805  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 14337 param found on stack +1
+      [+] 14341 param found on stack +1
+      [+] 90 local found on stack +1
+      [+] 65 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Passed Test case - Palindrome("bAaAaB") 8 / 8 
+----------------------
+1 (P 8 / 8) Answer 1 calling convention followed
+  expected (right): 0x42 0x42 0xcafe 0x5000 0x1 0x3801 0x3806  r5: 0xcafe r6: 0xeffd r7: 0x5001
+    actual  (left): 0x42 0x42 0xcafe 0x5000 0x1 0x3801 0x3806  r5: 0xcafe r6: 0xeffd r7: 0x5001
+      [+] answer found on stack +1
+      [+] r6 points to r6-1 (answer location) +1
+      [+] r7 found on stack and r7 not clobbered +1
+      [+] r5 found on stack and r5 not clobbered +1
+      [+] 14337 param found on stack +1
+      [+] 14342 param found on stack +1
+      [+] 66 local found on stack +1
+      [+] 66 local found on stack +1
+      Found no structural mistakes in the stack.  No changes needed.
+
+Summary
+-------
+Checks passed: 6 / 6
+Tests passed: 6 / 6
+Grade: 44 / 44
