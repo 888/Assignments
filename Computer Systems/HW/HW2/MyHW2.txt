@@ -1,0 +1,33 @@
+1. State1: DrOFF, LdB
+State2: func=ADD, DrALU, LdMAR
+State3: regno=RX, DrREG, WrMEM
+
+2. State0: DrREG, regno=RY, LdA
+State1: DrOFF, LdB
+State2: func=ADD, regno=RX, DrREG, WrMEM, MemoryMUX = ALUToAddr
+
+3. Without: 4
+With: 3
+
+4. 4/3 = 1.333 = 133% speedup
+
+
+
+
+1.a.
+
+
+
+
+
+1. Return from interrupt is broken into four parts:
+	a. Disable interrupts
+	b. Restore $k0
+	c. Re-enable interrupts
+	d. JALR back to return address
+It must be atomic because RETI is composed of multiple operations that must be executed in sequence without another interrupt(s) within the interrupt, so they are made atomic. 
+
+2. IVT is populated by the manufacturer and holds all interrupts resulting from all discontinuities (exceptions, traps, and interrupts). 
+Exception/Trap register is used to contain the current interrupt, from the IVT. 
+
+

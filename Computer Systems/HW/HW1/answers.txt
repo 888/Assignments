@@ -1,0 +1,30 @@
+CS 2200 Spring 2017
+Homework 1
+===================
+Alan Chiang
+Spring 2017
+===================
+
+Problem 1
+---------
+~~~~~~
+Part A
+~~~~~~
+1.a. To serve as an interface between the software and the hardware, allowing high-level code to be compiled into a set of commands that are understood by the hardware. 
+
+~~~~~~
+Part B
+~~~~~~
+ b.i. The top of the stack, at the last local variable when the stack is largest. 
+    ii. It grows towards the lower addresses, beginning at the highest address and moving downwards.
+
+~~~~~~
+Part C
+~~~~~~
+c. 1. Caller saves the data in the t-registers on the stack. 
+     2. The parameters for the function call are saved in a-registers and then passed onto the stack, if necessary. 
+     3. Caller saves the return address in $ra.
+     4. Control is transferred to the callee using JAL, by changing the PC to the callee's address. 
+     5. Callee allocates space on the stack for any necessary local variables, by shifting the stack pointer. 
+     6. Callee stores return values in $v0.
+     7. Jump back to the address indicated by $ra, and return control to the caller by updating the PC. 

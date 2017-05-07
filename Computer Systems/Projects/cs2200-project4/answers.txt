@@ -1,0 +1,23 @@
+CS 2200 Spring 2017
+Project 4
+Name:
+GT Number:
+
+Problem 1B
+----------
+No, not linear. The execution time decreases as we add CPUs, but with diminishing returns. This is because processes cannot be divided perfectly between all our CPUs. We can model this with the graph  of the function c/x, where c = total execution time and x = number of CPUs. Furthermore, when the number of CPUs > number of concurrent processes, we get no benefit from adding more CPUs.
+
+
+/* Fix me */
+
+Problem 2B
+----------
+The RR statistics show increased context switches as the timeslices decrease but decreased waiting time. Execution time remains the same. In real life, shorter timeslices and correspondingly higher numbers of context switches are undesirable because of the increased number of context switches, which is expensive. 
+
+/* Fix me */
+
+Problem 3B
+----------
+In a simulator, we know for sure how long every process will run and can context switch accordingly. In real life we don't always know the true time needed by all the processes on the ready queue so we are forced to approximate. Estimating which processes are actually shorter is prone to mistakes.
+/* Fix me */
+
