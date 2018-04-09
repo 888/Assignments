@@ -1,0 +1,236 @@
+<html>
+<head>
+<title>Computer Vision Project</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 960px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1><span style="color: #DE3737">Alan Chiang</span></h1>
+</div>
+</div>
+<div class="container">
+
+<h2>Project 1: Image Filtering and Hybrid Images</h2>
+
+<div style="float: right; padding: 20px">
+<img src="box_filter.png" />
+<p style="font-size: 14px">Example of a box filter. The dot product of blue pixels and h(x,y) produces the green pixel. For this Project 1, the boundaries of f(x,y) are padded with zeroes in order to produce an idential-resolution g(x,y) instead of the cropped version shown here.</p>
+</div>
+
+<h3>Image filtering</h3>
+
+
+<p> 	The image-filtering algorithm in my_imfilter was written with a box filter, such that each pixel in the filtered image represents the dot product of nine pixels in the original image and the nine pixels of the filter. The nine pixels in the original image are found by iterating through every pixel in the image and adding the eight adjacent pixels (including diagonals) surrounding each pixel. For pixels on the boundaries of the original image, with less than eight adjacent pixels, zeroes are used in place of the missing adjacent pixels. The implementation was as follows: </p>
+
+<ol>
+<li>Iterate over the colors (r,g,b)</li>
+<li>Iterate over the dimensions (x,y) of the original image</li>
+<li>Iterate over the dimensions (x,y) of the filter</li>
+<li>Calculate the dot product of the two groups of nine mentioned above, for each color at each pixel</li>
+<li>Set each of the filtered image's values to be the dot products calculated above</li>
+</ol>
+
+<pre><code>
+%Code sample:
+for c = 1:1:size(image,3)
+    for j = 1:1:image_y
+        for i = 1:1:image_x
+            sum = 0;
+            for l = 1:1:filter_y
+                for k = 1:1:filter_x
+                    sum = sum + pad_image(i + k - 1, j + l - 1, c)*filter(k, l);
+                end
+            end
+            new_image(i, j, c) = sum;
+        end
+    end
+end
+</code></pre>
+
+<p> 	I decided to calculate the values for each pixel individually within the for loops in order to get a better understanding of the actual numbers going into the filtered image's pixels.</p>
+
+<div style="clear:both">
+<h3>Hybrid images</h3>
+
+<p> 	Once I had completed the image filtering algorithm, producing hybrid images from the five given image pairs was very straightforward. I retrieved the images and converted them into floating point format as demonstrated, then assigned one of each pair as the low-frequency image and the other as the high-frequency image after running them through my_imfilter. The hybrid was simply their sum. Adjusting the the cutoff frequency to produce the best image for each pair was done by trial-and-error. Since colors are lower frequency, I found that assigning more colorful images as the high-frequency image (in order to remove color) helped produce better hybrid images.</p>
+
+<pre><code>
+%Code sample:
+low_frequencies = my_imfilter(image1, filter);
+high_frequencies = image2 - my_imfilter(image2, filter);
+hybrid_image = low_frequencies + high_frequencies;
+</code></pre>
+
+
+<h3>Results of filtering algorithm</h3>
+
+<table border=1>
+<tr>
+<td>
+<img src="image1.jpg" width="33%"/>
+<img src="image2.jpg"  width="33%"/>
+<img src="five_image12.jpg" width="33%"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="image11.jpg" width="33%"/>
+<img src="image12.jpg"  width="33%"/>
+<img src="five_image1112.jpg" width="33%"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="image13.jpg" width="33%"/>
+<img src="image14.jpg"  width="33%"/>
+<img src="five_image1314.jpg" width="33%"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="image15.jpg" width="33%"/>
+<img src="image16.jpg"  width="33%"/>
+<img src="five_image1516.jpg" width="33%"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="image17.jpg" width="33%"/>
+<img src="image18.jpg"  width="33%"/>
+<img src="five_image1718.jpg" width="33%"/>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
