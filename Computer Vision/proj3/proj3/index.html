@@ -1,0 +1,241 @@
+<html>
+<head>
+<title>Computer Vision Project</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 1160px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td img {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1>Alan Chiang</h1>
+</div>
+</div>
+<div class="container">
+
+<h2> Project 3 / Camera Calibration and Fundamental Matrix Estimation with RANSAC</h2>
+
+<h3>Part 1</h3>
+<p> 	Calibrating a camera is the process of mapping three-dimensional points in realspace to two-dimensional points in a camera's picture of that same realspace. The mathematical equation by which we can compute the specific points that correspond to each other in camera and world coordinates is expressed as x = K[R t]X, where x = homogenous image coordinates, K = intrinsic matrix, R = rotational matrix, t = translation matrix, and X = homogenous world coordinates. This equation can be rewritten as x = MX, where matrix M is the projection matrix, calculated as shown below: </p>
+
+<pre><code>
+for i=1:size(Points_3D, 1)
+    first = [Points_3D(i, 1), Points_3D(i, 2), Points_3D(i, 3), 1, 0, 0, 0, 0, -1 * Points_2D(i, 1) * Points_3D(i, 1),
+    	-1 * Points_2D(i, 1) * Points_3D(i, 2),  -1 * Points_2D(i, 1) * Points_3D(i, 3)];
+    second = [0, 0, 0, 0, Points_3D(i, 1), Points_3D(i, 2), Points_3D(i, 3), 1, -1 * Points_2D(i, 2) * Points_3D(i, 1),
+    	-1 * Points_2D(i, 2) * Points_3D(i, 2),  -1 * Points_2D(i, 2) * Points_3D(i, 3)];
+    a = [a;first;second;];
+    b = [b;Points_2D(i, 1);Points_2D(i, 2)];
+end
+temp = [linsolve(a, b);1]';
+M = [temp(1:4);temp(5:8);temp(9:12)];
+</code></pre>
+
+Using this calculated projection matrix, we can then solve for the camera's center in world coordinates. The results are shown below:
+
+<pre><code>
+>> proj3_part1
+The projection matrix is:
+    0.7679   -0.4938   -0.0234    0.0067
+   -0.0852   -0.0915   -0.9065   -0.0878
+    0.1827    0.2988   -0.0742    1.0000
+
+
+The total residual is: <0.0445>
+
+The estimated location of camera is: <-1.5126, -2.3517, 0.2827>
+</code></pre>
+
+<h3>Part 2</h3>
+<p> 	The fundamental matrix maps the corresponding points in a pair of stereo images, expressed in the equation x^T Fx' = 0. It describes an epipolar line, Fx', for a point x, upon which x's corresponding point x' must lie on the other image. At the same time, F^T x is the epipolar line for x. F is calculated using singular value decomposition to find a least squares solution to the system of linear equations produced by 8 pairs of corresponding points. This solution's rank is then reduced to 2 by decomposing F, setting the smallest singular value to zero, and multiplying the decomposed matrices back together again. The procedure and its results are shown below: </p>
+
+<pre><code>
+for i=1:size(Points_a)
+    F_matrix = [F_matrix; Points_a(i, 1) * Points_b(i, 1), Points_a(i,2) * Points_b(i, 1), Points_b(i, 1),
+    	Points_a(i, 1) * Points_b(i, 2), Points_a(i, 2) * Points_b(i, 2), Points_b(i, 2), Points_a(i, 1), Points_a(i, 2), 1];
+end
+
+[U, S, V] = svd(F_matrix);
+f = V(:, end);
+F_matrix = reshape(f, [3 3])';
+[U, S, V] = svd(F_matrix);
+S(3,3) = 0;
+F_matrix = U*S*V';
+</code></pre>
+
+<table border=1>
+<img src="fm1.jpg" width="50%"/>
+<img src="fm2.jpg" width="50%"/>
+</table>
+
+<h3>Part 3</h3>
+
+<p> 	Perfect point correspondences like the ones used in Part 2 are rarely the case in the real world, with real images. Instead, point correspondences calculated using SIFT are used, which include the noise and/or outliers that we would expect to find in real-world image data. VLFeat, a third-party computer vision library, is used to perform the SIFT matching. RANSAC is then used to select eight random point correspondences that are then plugged into the fundamental matrix (from Part 2) and solved. Afterwards, the number of inliers is counted, where inliers are defined as points whose distance from the epipolar line is within the threshold values of -0.04 < x < 0.04. This RANSAC-fundamental-matrix procedure is repeated ten thousand times, at the end of which the fundamental matrix with the highest number of inliers is returned as the "best" fundamental matrix. The RANSAC code, along with the point correspondences and epipolar lines produced by that procedure are shown below:</p>
+
+<code><pre>
+for i=1:10000
+    temp_a = [];
+    temp_b = [];
+    input_a = matches_a(randsample(size(matches_a, 1), 8),:);
+    input_b = matches_b(randsample(size(matches_b, 1), 8),:);
+    fund_mat = estimate_fundamental_matrix(input_a, input_b);
+    for j=1:size(matches_b, 1)
+        a = [matches_a(j,:)];
+        b = [matches_b(j,:)];
+        a = [a, 1];
+        b = [b, 1];
+        if (a * fund_mat * b' > -0.04 && a * fund_mat * b' < 0.04)
+            temp_a = [temp_a; matches_a(j,:)];
+            temp_b = [temp_b; matches_b(j,:)];
+        end
+    end
+    if size(temp_a,1) > size(in_a,1)
+        best = fund_mat;
+        in_a = temp_a;
+        in_b = temp_b;
+    end
+end
+inliers_a = in_a;
+inliers_b = in_b;
+Best_Fmatrix = best;
+</code></pre>
+
+<table border=1>
+<td>
+<img src="r1.jpg" width="48%"/>
+<img src="r2.jpg"  width="48%"/>
+<img src="r3.jpg" width="48%"/>
+<img src="r4.jpg" width="48%"/>
+</td>
+</table>
+
+</body>
+</html>

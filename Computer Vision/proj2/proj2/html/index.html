@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>Computer Vision Project</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 960px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1><span style="color: #DE3737">Alan Chiang</span></h1>
+</div>
+</div>
+<div class="container">
+
+<h2>Project 2: Local Feature Matching</h2>
+
+<div style="float: right; padding: 20px">
+<img src="placeholder.jpg" />
+<p style="font-size: 14px">Example of a right floating element.</p>
+</div>
+
+<p>	The core concept behind local feature matching is to recognize specific points on a particular image (of an object) that correspond to their equivalent points on another image (of that same object). Frequently, the two images are taken from different perspectives, angles, or distances. Local feature matching thereby allows us to "connect" the images such that a great many 2D images of the same object can be used to form a 3D model of the object in the image.  The process of local feature matching can be broadly divided into three distinct steps:</p>
+
+<ol>
+<li>Get Keypoints</li>
+<li>Get Features</li>
+<li>Match Features</li>
+</ol>
+
+<div style="clear:both">
+<h3>Step 1: Get Keypoints</h3>
+
+<p> As shown in the course slides, all points of an image can be categorized into three types: flat regions, edge regions, and corner regions, as seen through a small window of the image.Corners are defined as points which display a significant intensity change in all directions whenever the window is moved in any direction. While flat regions show no change, and edge regions show change but not along the edge direction, only corner points are sufficiently unique to be classified as keypoints. Identifying corners in an image is done by first blurring the image using a Gaussian filter, then applying the Harris corner detector, which takes the x and y gradients of the image before using the cornerness function defined in the course slides (below). <p>
+
+<pre><code>
+	cornerness = imfilter((ixsq.*iysq) - ((ixsq .* iysq).* (ixsq .* iysq)) - a *
+		(ixsq+iysq).*(ixsq+iysq), fspecial('gaussian', [9 9], .5));
+</code></pre>
+<p>Such that ixsq = the squared gradient of the image in the x-direction, iysq = the squared gradient of the image in the y-direction, a = alpha (constant), and a gaussian filter is applied <p>
+
+<p> The cornerness matrix is defined as a matrix of equal dimensions to the original image, with every element being the (nonzero) likelihood of the the corresponding element (in the image) being a corner. In this case, the experimentally determined threshold for this likelihood was set to 0.065, above which points were defined as corners. <p>
+
+<div style="clear:both">
+<h3>Step 2: Get Features</h3>
+<p> The SIFT algorithm was used to find features. It first applies a gaussian filter to blur the image, then creates a 16x16 window around each of the keypoints defined in Step 1, dividing each window into sixteen cells of 4x4 each. For every cell, a 8-dimensional vector is computed such that the elements in that vector each represent the sum of all magnitudes in that particular orientation within that cell. This process is repeated until all the vectors have been computed, at which point the vectors are all combined and normalized to create a single 128-dimensional vector that represents the entire feature. <p>
+
+<div style="clear:both">
+<h3>Step 3: Match Features</h3>
+<p> Features are matched by comparing a image's specific feature from Step 2 with a corresponding feature in its paired image. This comparison is made by using the nearest neighbor distance ratio, which is to say the distance to the closest neighbor divided by the distance to the next-closest neighbor. The lower the ratio, the better the match. As long as the ratio is low enough to pass a specified threshold, then the two features are matched.<p>
+
+<h3>Keypoints and Matches in sample images</h3>
+
+<table border=1>
+<tr>
+<td>
+<img src="images/NotreDamePoints.jpg" width="100%"/>
+<img src="images/NotreDameLines.JPG" width="100%"/>
+</td>
+</tr>
+</table>
+
+<p>Both the number of matches and the accuracy of those matches, for both Mount Rushmore and Episcopal Gaudi, were extremely low compared to Notre Dame, especially in the case of Gaudi.
+	<p>
+
+<table border=1>
+<tr>
+<td>
+<img src="images/RushPoints.jpg"  width="100%"/>
+<img src="images/RushLines.JPG"  width="100%"/>
+<img src="images/GaudiPoints.jpg" width="100%"/>
+<img src="images/GaudiLines.JPG" width="100%"/>
+</td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>
