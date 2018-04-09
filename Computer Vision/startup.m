@@ -1,0 +1,1 @@
+run('C:/Users/Alan/Documents/MATLAB/vlfeat-0.9.20/vlfeat-0.9.20/toolbox/vl_setup');
