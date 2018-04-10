@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<documents>
+    <document>
+        <docID>doc009</docID>
+        <docDate>6 May, 2002</docDate>
+        <docSource>doc009</docSource>
+        <docText>Reports of repeated sightings of individuals travelling in groups on ferries from Bremerton to Seattle.  Suspicious individuals spoke with Russian accents and made multiple trips within a two week period.
+</docText>
+        <Location>Seattle</Location>
+        <Location>Bremerton</Location>
+    </document>
+    <document>
+        <docID>doc008</docID>
+        <docDate>14 September, 2002</docDate>
+        <docSource>doc008</docSource>
+        <docText>Examined websites related to Revolution Now organization that indicate potential for increased activity.  The organization has been linked to two bombings in Texas last year.
+</docText>
+        <Date>last year</Date>
+        <Organization>Revolution Now</Organization>
+        <Location>Texas</Location>
+    </document>
+    <document>
+        <docID>doc007</docID>
+        <docDate>3 July, 2002</docDate>
+        <docSource>doc007</docSource>
+        <docText>Multiple boxes of grenades and guns were reported missing from a storage facility in Fort Bragg, NC. A monthly inventory identified the missing arms and a damage indicating a break-in was found at a storage facility.  Suspicion that it might be an inside job because of the lack of further external evidence.
+</docText>
+        <Location>Fort Bragg</Location>
+        <Location>NC</Location>
+    </document>
+    <document>
+        <docID>doc039</docID>
+        <docDate>08 June, 2002</docDate>
+        <docSource>doc039</docSource>
+        <docText>Suspects arrested for planning to stage a massive mid-air terror attacked were in the final stages of planning and planned to run a dry-run of the plan within two days. One official said the suicide attackers planned to use a peroxide-based solution that could ignite when sparked by a camera flash or another electronic device. Police arrested 24 main suspects were arrested earlier yesterday.
+</docText>
+        <Date>yesterday</Date>
+        <Organization>Police</Organization>
+    </document>
+    <document>
+        <docID>doc006</docID>
+        <docDate>20 September, 2002</docDate>
+        <docSource>doc006</docSource>
+        <docText>John H. seen in company with Lotfi Raissi, who may have helped train the four hijacker pilots involved in September 11, 2001 terrorist incidents. It seems that the name John H. is an alias for Omar K., a person known to be associated with Al-Queda.
+</docText>
+        <Date>September 11, 2001</Date>
+        <Organization>Al-Queda</Organization>
+        <Person>Lotfi Raissi</Person>
+        <Person>John H.</Person>
+        <Person>Omar K.</Person>
+    </document>
+    <document>
+        <docID>doc038</docID>
+        <docDate>19 October, 2002</docDate>
+        <docSource>doc038</docSource>
+        <docText>A truck was hijacked outside of Fargo, North Dakota. The truck was carrying several tones of industrial explosives. The truck's location is presently unknown.  
+</docText>
+        <Location>North Dakota</Location>
+        <Location>Fargo</Location>
+    </document>
+    <document>
+        <docID>doc005</docID>
+        <docDate>21 February, 2002</docDate>
+        <docSource>doc005</docSource>
+        <docText>Report of theft of small arms ammunition, four M-16 rifles, six grenade launchers and six surface-to-air missiles. This theft occurred at a military installation in Colorado. [This theft is still under investigation.]
+</docText>
+        <Location>Colorado</Location>
+    </document>
+    <document>
+        <docID>doc037</docID>
+        <docDate>25 October, 2002</docDate>
+        <docSource>doc037</docSource>
+        <docText>A man named Nizar A. holding a valid French passport was allowed entry into the U.S. on 25 July, 2002 at International Falls, Minnesota.
+</docText>
+        <Date>25 July, 2002</Date>
+        <Person>Nizar A.</Person>
+        <Location>U.S.</Location>
+        <Location>International Falls</Location>
+        <Location>Minnesota</Location>
+    </document>
+    <document>
+        <docID>doc004</docID>
+        <docDate>11 August, 2002</docDate>
+        <docSource>doc004</docSource>
+        <docText>Detained Antonio Gonzalez entering the country through Houston Hobby airport.  Gonzalez contained maps and plans for biological agent testing facility in Fisher Island, NY. Gonzalez had no explanation for the documents.
+</docText>
+        <Location>NY</Location>
+        <Location>Fisher Island</Location>
+        <Location>Houston Hobby airport</Location>
+        <Person>Gonzalez</Person>
+        <Person>Antonio Gonzalez</Person>
+    </document>
+    <document>
+        <docID>doc036</docID>
+        <docDate>14 May, 2002</docDate>
+        <docSource>doc036</docSource>
+        <docText>German police arrested two men near Frankfurt on terrorism charges, alleging they were involved in a cell that had plotted to blow up U.S. targets in Germany a year ago. Federal prosecutors said the two suspects had traveled separately to Pakistan during 2001 in an attempt to receive training at camps operated by the Islamic Jihad Union. 
+
+</docText>
+        <Date>2001</Date>
+        <Organization>Islamic Jihad Union</Organization>
+        <Location>Germany</Location>
+        <Location>Pakistan</Location>
+        <Location>Frankfurt</Location>
+        <Location>U.S.</Location>
+    </document>
+    <document>
+        <docID>doc003</docID>
+        <docDate>15 July, 2002</docDate>
+        <docSource>doc003</docSource>
+        <docText>Report of theft of weapons from a military installation in Georgia on or about 12 July, 2002. Missing are about 500 rounds of M-14 ammunition and an undetermined number of obsolete surface-to-air missiles. [This theft is still under investigation.]
+</docText>
+        <Date>12 July, 2002</Date>
+        <Location>Georgia</Location>
+    </document>
+    <document>
+        <docID>doc035</docID>
+        <docDate>2 October, 2002</docDate>
+        <docSource>doc035</docSource>
+        <docText>Intercepted emails from T.N. renouncing the U.S. government and calling for followers to join the cause. Emails state that now is the time to act and be heard. Most receiving email addresses appear to be located at IP addresses located in the New England states.
+</docText>
+        <Organization>U.S. government</Organization>
+        <Location>New England</Location>
+        <Person>T.N.</Person>
+    </document>
+    <document>
+        <docID>doc002</docID>
+        <docDate>7 May, 2002</docDate>
+        <docSource>doc002</docSource>
+        <docText>Intercepted an email warning of "big events" to occur at various southern cities in the fall.  Extensive planning and preparation is being done for these events.
+</docText>
+    </document>
+    <document>
+        <docID>doc034</docID>
+        <docDate>20 September, 2002</docDate>
+        <docSource>doc034</docSource>
+        <docText>Four men have been charged with conspiring to blow up jet fuel supply tanks and pipelines at John F. Kennedy International Airport. A law enforcement source told that the idea for the plot allegedly came from Defreitas, who also apparently recruited the other men. Those three supposedly directed the effort. Defreitas, 63, a native of Guyana who has been a U.S. citizen since the 1960s, was arrested in Brooklyn, New York.
+</docText>
+        <Date>the 1960s</Date>
+        <Location>New York</Location>
+        <Location>Guyana</Location>
+        <Location>U.S.</Location>
+        <Location>Brooklyn</Location>
+        <Location>John F. Kennedy International Airport</Location>
+        <Person>Defreitas</Person>
+    </document>
+    <document>
+        <docID>doc001</docID>
+        <docDate>26 June, 2002</docDate>
+        <docSource>doc001</docSource>
+        <docText>Three armed men held up a First American bank in Charlotte, NC.  The men wore masks and carried machine guns. Witnesses reported seeing a gray or silver SUV fleeing the scene at high speed.
+</docText>
+        <Organization>First American bank</Organization>
+        <Location>Charlotte</Location>
+        <Location>NC</Location>
+    </document>
+    <document>
+        <docID>doc033</docID>
+        <docDate>15 October, 2002</docDate>
+        <docSource>doc033</docSource>
+        <docText>Based on information obtained on 12 October, 2002 concerning Ryder and U-Haul truck rentals by persons who could be identified as foreign nationals
+1) On October 6, 2002 a small panel truck was rented at a U-Haul agency in Boulder, Colorado by a man who identified himself by means of a California driver's license. The name on the driver's license was Arnold C., whose residence was listed in Los Angeles, California. The rental was for a one-way trip; the truck was returned to a U-Haul agency in Los Angeles on 9 October, 2002. Mr. C. paid for the truck in cash.
+2) On October 8, 2002 a small panel truck was rented at a Ryder agency in Macon, Georgia by a man who identified himself by a Minnesota driver's license. The name on the license was Kamel J. whose address was listed in St. Paul, Minnesota. This truck was returned to a Ryder agency in St. Paul on 11 October, 2002.
+3) On October 15, 2002 a U-Haul panel truck was rented in Nashville, Tennessee by a man who identified himself Harold W. whose address, given on his Tennessee driver's license, is in St. Louis, Missouri. This truck was to turned in to a U-Haul agency in St. Louis and was turned in on 17 October, 2002.
+</docText>
+        <Date>9 October, 2002</Date>
+        <Date>October 8, 2002</Date>
+        <Date>17 October, 2002</Date>
+        <Date>12 October, 2002</Date>
+        <Date>October 6, 2002</Date>
+        <Date>11 October, 2002</Date>
+        <Date>October 15, 2002</Date>
+        <Organization>Ryder</Organization>
+        <Organization>U-Haul</Organization>
+        <Location>Minnesota</Location>
+        <Location>St. Paul</Location>
+        <Location>Macon</Location>
+        <Location>Los Angeles</Location>
+        <Location>California</Location>
+        <Location>Boulder</Location>
+        <Location>Colorado</Location>
+        <Location>St. Louis</Location>
+        <Location>Missouri</Location>
+        <Location>Nashville</Location>
+        <Location>Tennessee</Location>
+        <Location>Georgia</Location>
+        <Person>Arnold C.</Person>
+        <Person>Mr. C.</Person>
+        <Person>Kamel J.</Person>
+        <Person>Harold W.</Person>
+    </document>
+    <document>
+        <docID>doc032</docID>
+        <docDate>15 September, 2002</docDate>
+        <docSource>doc032</docSource>
+        <docText>The person identified as George W. in doc029 may be Muhammad J., a Saudi national who is believed to be a member of Al-Queda.
+</docText>
+        <Organization>Al-Queda</Organization>
+        <Person>George W.</Person>
+        <Person>Muhammad J.</Person>
+    </document>
+    <document>
+        <docID>doc031</docID>
+        <docDate>20 August, 2002</docDate>
+        <docSource>doc031</docSource>
+        <docText>Report of sums of money totaling over $200,000, deposited in Atlanta bank accounts thought to be associated with members of God's Aryan Militia in Atlanta.
+</docText>
+        <Money>$200,000</Money>
+        <Organization>God's Aryan Militia</Organization>
+        <Location>Atlanta</Location>
+    </document>
+    <document>
+        <docID>doc030</docID>
+        <docDate>08 August, 2002</docDate>
+        <docSource>doc030</docSource>
+        <docText>Five of the seven suspects accused of plotting to blow up several buildings including the Sears Tower appeared in a Florida court. Attorney general Alberto Gonzales describes the men as homegrown terrorists. Authorities say the group planned to attack several buildings across the country, including the Sears Tower in Chicago and the FBI headquarters in Miami. Investigators say the mastermind behind these attacks is a man named William Balfour.
+</docText>
+        <Organization>FBI</Organization>
+        <Location>Chicago</Location>
+        <Location>Florida</Location>
+        <Location>Miami</Location>
+        <Person>Alberto Gonzales</Person>
+        <Person>William Balfour</Person>
+    </document>
+    <document>
+        <docID>doc029</docID>
+        <docDate>10 August, 2002</docDate>
+        <docSource>doc029</docSource>
+        <docText>Video-taped report of a meeting in Atlanta, Georgia on 8 August, 2002 involving Ralph T., a member of God's Aryan Militia and a person identified as George W. Ralph T. has been under surveillance in connection with the arms purchase noted in doc022. 
+</docText>
+        <Date>8 August, 2002</Date>
+        <Organization>God's Aryan Militia</Organization>
+        <Location>Atlanta</Location>
+        <Location>Georgia</Location>
+        <Person>George W.</Person>
+        <Person>Ralph T.</Person>
+    </document>
+    <document>
+        <docID>doc028</docID>
+        <docDate>23 July, 2002</docDate>
+        <docSource>doc028</docSource>
+        <docText>A group of people purchased anti-tank missiles, rocket-propelled grenades, rifles and handguns and was working with the Gulf Cartel to get into the U.S.. They also paid  one of Mexico's most ruthless drug cartels $20,000 apiece. 
+</docText>
+        <Money>$20,000</Money>
+        <Organization>Gulf Cartel</Organization>
+        <Location>Mexico</Location>
+        <Location>U.S.</Location>
+    </document>
+    <document>
+        <docID>doc027</docID>
+        <docDate>16 July, 2002</docDate>
+        <docSource>doc027</docSource>
+        <docText>Report of sums of money totaling $150,000 deposited in Denver bank accounts thought to be associated with the Aryan Brotherhood of Colorado.
+</docText>
+        <Money>$150,000</Money>
+        <Organization>Aryan Brotherhood of Colorado</Organization>
+        <Location>Denver</Location>
+    </document>
+    <document>
+        <docID>doc026</docID>
+        <docDate>01 October, 2002</docDate>
+        <docSource>doc026</docSource>
+        <docText>A team of suicide bombers planned to set off explosives sometime this fall in trains carrying tens of thousands of commuters under the Hudson River. The attack would resemble last year's London transit bombing and, the conspirators hoped, unleash a torrent of water on Wall Street.
+</docText>
+        <Date>last year</Date>
+        <Location>Hudson River</Location>
+        <Location>London</Location>
+        <Location>Wall Street</Location>
+    </document>
+    <document>
+        <docID>doc025</docID>
+        <docDate>21 May, 2002</docDate>
+        <docSource>doc025</docSource>
+        <docText>An unknown group had plans to carry out massive terrorist operations in the scale of 9/11 attacks targeting oil facilities in Saudi Arabia, Kuwait and the United Arab Emirates, according to captured militants whose confessions were published in the local media yesterday.
+</docText>
+        <Date>yesterday</Date>
+        <Location>United Arab Emirates</Location>
+        <Location>Kuwait</Location>
+        <Location>Saudi Arabia</Location>
+    </document>
+    <document>
+        <docID>doc024</docID>
+        <docDate>8 July, 2002</docDate>
+        <docSource>doc024</docSource>
+        <docText>Recorded conversation in Denver, Colorado on 1 July, 2002 between Homer W. of the Aryan Brotherhood of Colorado and a person who identified himself as John H. This conversation involved the sale of weapons of an unspecified nature. Homer W. is an Army sergeant being investigated in connection with the theft of weapons reported in doc005.
+</docText>
+        <Date>1 July, 2002</Date>
+        <Organization>Aryan Brotherhood of Colorado</Organization>
+        <Location>Denver</Location>
+        <Location>Colorado</Location>
+        <Person>Homer W.</Person>
+        <Person>John H.</Person>
+    </document>
+    <document>
+        <docID>doc023</docID>
+        <docDate>18 October, 2002</docDate>
+        <docSource>doc023</docSource>
+        <docText>A person reported that he had found a suspicious-looking box on the beach in Florida. It's been waiting for investigation and what is in the box has not been uncovered. 
+</docText>
+        <Location>Florida</Location>
+    </document>
+    <document>
+        <docID>doc022</docID>
+        <docDate>15 April, 2002</docDate>
+        <docSource>doc022</docSource>
+        <docText>Based on a report from a source inside God's Aryan Militia, Atlanta, Georgia. Militia group's purchase of surplus weapons  from an overseas arms supplier on or about 10 April, 2002. Purchase believed to include automatic weapons of various sorts and an unknown number of surface-to-air missiles.
+</docText>
+        <Date>10 April, 2002</Date>
+        <Organization>God's Aryan Militia</Organization>
+        <Location>Atlanta</Location>
+        <Location>Georgia</Location>
+    </document>
+    <document>
+        <docID>doc021</docID>
+        <docDate>2 June, 2002</docDate>
+        <docSource>doc021</docSource>
+        <docText>Intercepted email from A.G.  Message said, "R.G., plans are still underway for our new operation.  Friends in Memphis, Birmingham, and Jackson will assist."
+</docText>
+        <Location>Birmingham</Location>
+        <Location>Jackson</Location>
+        <Location>Memphis</Location>
+        <Person>A.G.</Person>
+        <Person>R.G.</Person>
+    </document>
+    <document>
+        <docID>doc020</docID>
+        <docDate>29 May, 2002</docDate>
+        <docSource>doc020</docSource>
+        <docText>Julio S. and David W. entered the U.S. from Mexico on 17 May through Atlanta.  Subsequent immigration checks showed that the passports were faked. 
+</docText>
+        <Date>17 May</Date>
+        <Location>U.S.</Location>
+        <Location>Atlanta</Location>
+        <Location>Mexico</Location>
+        <Person>Julio S.</Person>
+        <Person>David W.</Person>
+    </document>
+    <document>
+        <docID>doc050</docID>
+        <docDate>27 October, 2002</docDate>
+        <docSource>doc050</docSource>
+        <docText>On 14 July, 2002, a man identified as Majed H. rented a car at a Hertz car rental agency in Chicago, Illinois and dropped off the rented car in Minneapolis, Minnesota on 17 July, 2002.
+</docText>
+        <Date>14 July, 2002</Date>
+        <Date>17 July, 2002</Date>
+        <Person>Majed H.</Person>
+        <Organization>Hertz car rental agency</Organization>
+        <Location>Minnesota</Location>
+        <Location>Minneapolis</Location>
+        <Location>Illinois</Location>
+        <Location>Chicago</Location>
+    </document>
+    <document>
+        <docID>doc019</docID>
+        <docDate>20 August, 2002</docDate>
+        <docSource>doc019</docSource>
+        <docText>Three newspapers reported receiving emails on 17 August, 2002, from an Organization named Justice Forever threatening violence to elected officials in those states and the federal government.  The email's origin was traced to a public computer in a library in Charlotte, NC. 
+</docText>
+        <Date>17 August, 2002</Date>
+        <Organization>Justice Forever</Organization>
+        <Location>NC</Location>
+        <Location>Charlotte</Location>
+    </document>
+    <document>
+        <docID>doc018</docID>
+        <docDate>22 October, 2002</docDate>
+        <docSource>doc018</docSource>
+        <docText>Nizar A. an Algerian residing in Paris entered Montreal, Canada on 16 July 2002 using a French passport. He is known to have traveled to Winnipeg, Canada. Nizar A. is now known to have spent six months in Afghanistan and may have traveled to Iraq.
+</docText>
+        <Date>16 July 2002</Date>
+        <Location>Canada</Location>
+        <Location>Winnipeg</Location>
+        <Location>Afghanistan</Location>
+        <Location>Iraq</Location>
+        <Location>Paris</Location>
+        <Location>Montreal</Location>
+        <Person>Nizar A.</Person>
+    </document>
+    <document>
+        <docID>doc017</docID>
+        <docDate>11 August, 2002</docDate>
+        <docSource>doc017</docSource>
+        <docText>Three police were hurt in a clash with the Devil May Care motorcycle gang in Albuquerque, New Mexico on 9 August, 2002. Multiple arrests were subsequently made. The gang had a large cache of weapons including machine guns. The gang's purported leader is Jake Winders.
+</docText>
+        <Date>9 August, 2002</Date>
+        <Organization>Devil May Care</Organization>
+        <Location>Albuquerque</Location>
+        <Location>New Mexico</Location>
+        <Person>Jake Winders</Person>
+    </document>
+    <document>
+        <docID>doc049</docID>
+        <docDate>25 October, 2002</docDate>
+        <docSource>doc049</docSource>
+        <docText>On 24 October, 2002 embedded in a figure on a web site, allegedly with an Islamic charitable organization, was a coded number believed to be: 021127. It is likely that this number is the date: 27 November 2002.
+</docText>
+        <Date>27 November 2002</Date>
+        <Date>24 October, 2002</Date>
+        <Organization>Islamic charitable organization</Organization>
+    </document>
+    <document>
+        <docID>doc048</docID>
+        <docDate>19 October, 2002</docDate>
+        <docSource>doc048</docSource>
+        <docText>Examination of the U-Haul truck rented by Mohammed H., and returned to St. Louis, Missouri was found to have traces of semtex explosives in the cab of the truck.
+</docText>
+        <Organization>U-Haul</Organization>
+        <Location>St. Louis</Location>
+        <Location>Missouri</Location>
+        <Person>Mohammed H.</Person>
+    </document>
+    <document>
+        <docID>doc016</docID>
+        <docDate>7 September, 2002</docDate>
+        <docSource>doc016</docSource>
+        <docText>Officials seized documents at 134 Boynton Beach Lane in Miami on September 5, 2002.  The initials C.G., Y.K., and J.S. appeared along with lists of 12 U.S. airports and various dates in October and November.
+</docText>
+        <Date>September 5, 2002</Date>
+        <Date>October</Date>
+        <Date>November</Date>
+        <Location>Miami</Location>
+        <Location>U.S.</Location>
+        <Location>134 Boynton Beach Lane</Location>
+        <Person>C.G.</Person>
+        <Person>J.S.</Person>
+        <Person>Y.K.</Person>
+    </document>
+    <document>
+        <docID>doc047</docID>
+        <docDate>27 October, 2002</docDate>
+        <docSource>doc047</docSource>
+        <docText>The person identified as Muhammad J. in doc032 and the person identified as Kamel J. in doc033 were photographed together in a bank in Atlanta, Georgia on October 6, 2002.
+</docText>
+        <Date>October 6, 2002</Date>
+        <Location>Atlanta</Location>
+        <Location>Georgia</Location>
+        <Person>Muhammad J.</Person>
+        <Person>Kamel J.</Person>
+    </document>
+    <document>
+        <docID>doc015</docID>
+        <docDate>28 August, 2002]</docDate>
+        <docSource>doc015</docSource>
+        <docText>On August 23, 2002 customs officers seized 234 pounds of cocaine from a marina south of Tampa.  Arrested were Jesus Vazquez and Robert D'Onfrio.  Each has connections to a South American syndicate and drug cartel.
+</docText>
+        <Date>August 23, 2002</Date>
+        <Location>South American</Location>
+        <Location>Tampa</Location>
+        <Person>Robert D'Onfrio</Person>
+        <Person>Jesus Vazquez</Person>
+    </document>
+    <document>
+        <docID>doc046</docID>
+        <docDate>13 September, 2002</docDate>
+        <docSource>doc046</docSource>
+        <docText>Six men from New Jersey have been charged in an alleged terror plot against soldiers at Fort Dix.The men planned to use automatic rifles to enter Fort Dix and kill as many soldiers as they could at the New Jersey military base. Fort Dix was just one of several military and security locations allegedly scouted by this group. The suspects, identified as Dritan Duka, Miquel James, Kendrick Bullard, Brendan Downing, Cruz Jelliman, and Buck Prescott, have been charged with conspiring to kill U.S. government employees.
+</docText>
+        <Location>Fort Dix</Location>
+        <Location>New Jersey</Location>
+        <Location>U.S.</Location>
+        <Person>Kendrick Bullard</Person>
+        <Person>Brendan Downing</Person>
+        <Person>Buck Prescott</Person>
+        <Person>Dritan Duka</Person>
+        <Person>Miquel James</Person>
+        <Person>Cruz Jelliman</Person>
+    </document>
+    <document>
+        <docID>doc014</docID>
+        <docDate>20 October, 2002</docDate>
+        <docSource>doc014</docSource>
+        <docText>Essid D. and Djamel K., both Syrian nationals, entered the U.S. illegally in Los Angeles on 3 August 2002 using false Egyptian passports and travel visas. Both are said to have spent at least a year in Afghanistan.</docText>
+        <Date>3 August 2002</Date>
+        <Person>Essid D.</Person>
+        <Person>Djamel K.</Person>
+        <Location>U.S.</Location>
+        <Location>Afghanistan</Location>
+        <Location>Los Angeles</Location>
+    </document>
+    <document>
+        <docID>doc045</docID>
+        <docDate>06 September, 2002</docDate>
+        <docSource>doc045</docSource>
+        <docText>An Illinois man plotted to set off hand grenades at a Chicago-area shopping mall in a holiday season terror campaign that was thwarted by federal investigators. According to an FBI affidavit, Derrick Shareef, 22, told a confidential source that he wanted to "commit violent acts of jihad," and spoke of killing judges and blowing up public buildings.
+</docText>
+        <Organization>FBI</Organization>
+        <Location>Illinois</Location>
+        <Location>Chicago</Location>
+        <Person>Derrick Shareef</Person>
+    </document>
+    <document>
+        <docID>doc013</docID>
+        <docDate>26 July, 2002</docDate>
+        <docSource>doc013</docSource>
+        <docText>Security measures have been raised at harbors and marinas on the West coast pending a letter received at the Los Angeles FBI field office threatening them.  No identification was on the letter but it had "RN" in large letters at the top.
+</docText>
+        <Location>Los Angeles</Location>
+        <Organization>FBI</Organization>
+    </document>
+    <document>
+        <docID>doc044</docID>
+        <docDate>26 October, 2002</docDate>
+        <docSource>doc044</docSource>
+        <docText>A computer in a public library in Atlanta, Georgia recorded several connections on 23 and 24 October, 2002 to the web site in doc049. Connections to this same web site were found in the library at Colorado State University on 23 and 24 October, 2002.
+</docText>
+        <Date>24 October, 2002</Date>
+        <Organization>Colorado State University</Organization>
+        <Location>Atlanta</Location>
+        <Location>Georgia</Location>
+    </document>
+    <document>
+        <docID>doc012</docID>
+        <docDate>15 October, 2002</docDate>
+        <docSource>doc012</docSource>
+        <docText>A man named Majed H., using a faked Jordanian passport and travel visa, traveled from Aman, Jordan to Chicago, Illinois on 12 July, 2002. Majed H. is known to have resided in Afghanistan for two years [1996-1997] and has been identified as a member of Al-Queda. 
+</docText>
+        <Date>12 July, 2002</Date>
+        <Date>1996</Date>
+        <Date>1997</Date>
+        <Organization>Al-Queda</Organization>
+        <Location>Jordan</Location>
+        <Location>Chicago</Location>
+        <Location>Illinois</Location>
+        <Location>Afghanistan</Location>
+        <Location>Aman</Location>
+        <Person>Majed H.</Person>
+    </document>
+    <document>
+        <docID>doc043</docID>
+        <docDate>01 August, 2002</docDate>
+        <docSource>doc043</docSource>
+        <docText>British police have a "crystal clear" picture of the man who drove the bomb-rigged silver Mercedes outside a New York nightclub, and officials tell that he bears "a close resemblance" to a man arrested by police in connection with another bomb plot but released for lack of evidence. 
+</docText>
+        <Location>New York</Location>
+    </document>
+    <document>
+        <docID>doc011</docID>
+        <docDate>17 June, 2002</docDate>
+        <docSource>doc011</docSource>
+        <docText>Connected James Robinson (potential alias Jim Ross) and Eduardo Herrero (alias Eddie Macon) with the Revolution Now organization.  
+</docText>
+        <Organization>Revolution Now</Organization>
+        <Person>Eddie Macon</Person>
+        <Person>Eduardo Herrero</Person>
+        <Person>Jim Ross</Person>
+        <Person>James Robinson</Person>
+    </document>
+    <document>
+        <docID>doc042</docID>
+        <docDate>29 July, 2002</docDate>
+        <docSource>doc042</docSource>
+        <docText>Two men with Jordanian passports were arrested yesterday morning in a Brooklyn apartment, where police officers found components of one or more pipe bombs -- evidence of what the authorities say was a terrorist plot to detonate bombs in the busy Atlantic Avenue subway station and on a commuter bus. 
+</docText>
+        <Date>yesterday morning</Date>
+        <Location>Brooklyn</Location>
+        <Location>Atlantic Avenue</Location>
+    </document>
+    <document>
+        <docID>doc010</docID>
+        <docDate>28 September, 2002</docDate>
+        <docSource>doc010</docSource>
+        <docText>Observed James Smithson and Edward Johnson having lunch in Dallas.  Surveillance indicated the two made multiple phone calls and exchanged large documents.
+</docText>
+        <Location>Dallas</Location>
+        <Person>James Smithson</Person>
+        <Person>Edward Johnson</Person>
+    </document>
+    <document>
+        <docID>doc041</docID>
+        <docDate>20 October, 2002]</docDate>
+        <docSource>doc041</docSource>
+        <docText>Fingerprints observed in the cab of the U-Haul truck rented by Arnold C. on October 6, 2002 match those of Abu H. was taken into custody shortly after September 11, 2002 and then released. The U-Haul truck returned to Los Angeles was not subsequently rented after it was returned by Arnold C.
+</docText>
+        <Date>October 6, 2002</Date>
+        <Date>September 11, 2002</Date>
+        <Organization>U-Haul</Organization>
+        <Location>Los Angeles</Location>
+        <Person>Arnold C.</Person>
+        <Person>Abu H.</Person>
+    </document>
+    <document>
+        <docID>doc040</docID>
+        <docDate>27 April, 2002</docDate>
+        <docSource>doc040</docSource>
+        <docText>Police arrested three men, in the rural village of Germany as they transferred bombmaking chemicals from a rented house. Police said they had stockpiled more than 1,500 pounds of the chemicals to construct homemade explosives and had smuggled detonators from Turkey. Two of the men were German natives -- Fritz Martin Gelowicz and Daniel Martin Schneider. The third suspect, Adem Yilmaz is a Turkish national who grew up in Germany. The three suspects, all in their 20s, had attended training camps in Pakistan run by the Islamic Jihad Union. 
+</docText>
+        <Organization>Islamic Jihad Union</Organization>
+        <Organization>Police</Organization>
+        <Location>Turkey</Location>
+        <Location>Germany</Location>
+        <Location>Pakistan</Location>
+        <Person>Fritz Martin Gelowicz</Person>
+        <Person>Daniel Martin Schneider</Person>
+        <Person>Adem Yilmaz</Person>
+    </document>
+    <document>
+        <docID>doc051</docID>
+        <docDate>22 October, 2002</docDate>
+        <docSource>doc051</docSource>
+        <docText>Abu H., who was released from custody after the September 11 incidents and whose fingerprints were found in the U-Haul truck rented by Arnold C.[see doc033] holds an Egyptian passport. He is now known to have spent six months in Afghanistan in the summer of 1999.
+</docText>
+        <Date>1999</Date>
+        <Date>September 11</Date>
+        <Organization>U-Haul</Organization>
+        <Location>Afghanistan</Location>
+        <Person>Abu H.</Person>
+        <Person>Arnold C.</Person>
+    </document>
+    <document>
+        <docID>doc052</docID>
+        <docDate>18 July, 2002</docDate>
+        <docSource>doc052</docSource>
+        <docText>French Intelligence alerted the FBI to the activity of Jigar Z., last seen in Tunis in 2001. He may have entered the U.S. using an Algerian passport in late January or February. He has been connected to various mid-East terror organizations.
+ </docText>
+        <Date>2001</Date>
+        <Date>January 2002</Date>
+        <Date>February 2002</Date>
+        <Organization>French Intelligence</Organization>
+        <Organization>FBI</Organization>
+        <Location>Tunis</Location>
+        <Location>Algeria</Location>
+        <Person>Jigar Z.</Person>
+    </document>
+    <document>
+        <docID>doc053</docID>
+        <docDate>21 September, 2002</docDate>
+        <docSource>doc053</docSource>
+        <docText>Multiple smuggling operations using the port of Savannah were discovered today. Goods were being shipped through the Caribbean. Items included black-market products and goods. The relevant firm was Global Exports Inc.
+ </docText>
+        <Organization>Global Exports Inc.</Organization>
+        <Location>Caribbean</Location>
+        <Location>Savannah</Location>
+    </document>
+    <document>
+        <docID>doc054</docID>
+        <docDate>29 September, 2002</docDate>
+        <docSource>doc054</docSource>
+        <docText>Continuing surveillance of Adnan Hijazi reveals that, on 14 September, 2002, he sent a bank wire transfer of $48,000 to the account of an organization called the American Middle Eastern Scholarship Fund, which is located at 1721 Glade Dr. in Reston, Virginia.
+ </docText>
+        <Money>$48,000</Money>
+        <Date>14 September, 2002</Date>
+        <Organization>American Middle Eastern Scholarship Fund</Organization>
+        <Location>1721 Glade Dr.</Location>
+        <Location>Reston</Location>
+        <Location>Virginia</Location>
+        <Person>Adnan Hijazi</Person>
+    </document>
+    <document>
+        <docID>doc055</docID>
+        <docDate>18 March, 2002</docDate>
+        <docSource>doc055</docSource>
+        <docText>A Russian named Igor Kolokov was arrested in Boston on 29 January, 2002 and charged with assault on a city police officer who had attempted to arrest him for being drunk in public. Kolokov sells medical supplies throughout the Middle East and represents a company in Moscow called Medikat. A background check on Kolokov reveals that he was formerly an administrator at the Soviet institute Vector in Strizi, near Kirov in Russia. When he was arrested, Kolokov was carrying a card with a note on it reading [in Russian]: "Safrygin for H. Q., Boston."
+ </docText>
+        <Date>29 January, 2002</Date>
+        <Organization>Medikat</Organization>
+        <Organization>Soviet institute Vector</Organization>
+        <Location>Boston</Location>
+        <Location>Middle East</Location>
+        <Location>Moscow</Location>
+        <Location>Strizi</Location>
+        <Location>Kirov</Location>
+        <Location>Russia</Location>
+        <Person>Igor Kolokov</Person>
+    </document>
+    <document>
+        <docID>doc056</docID>
+        <docDate>22 October, 2002</docDate>
+        <docSource>doc056</docSource>
+        <docText>This source reports observing, near Calamar on 3 March, 2002, three men he knew were Cubans discussing the transfer of cocaine with members of the National Liberation Army [ELN] in Columbia. The source recognized one of these Cubans as Jose Escalante. This source says that he knew Escalante when they were students in 1991 at a school for medical laboratory technicians in Havana. This source said he believes that Escalante works in some capacity for the Cuban military. Our source also stated that Cuban representatives frequently visit in the tri-border area of Columbia, Ecuador and Peru to arrange for the exchange of weapons of various sorts needed by ELN for cocaine, that the ELN supplies to the Cubans who sell and distribute this narcotic throughout the Caribbean and Central American region.
+ </docText>
+        <Date>3 March, 2002</Date>
+        <Date>1991</Date>
+        <Organization>National Liberation Army</Organization>
+        <Organization>ELN</Organization>
+        <Location>Calamar</Location>
+        <Location>Havana</Location>
+        <Location>Cuba</Location>
+        <Location>Columbia</Location>
+        <Location>Ecuador</Location>
+        <Location>Peru</Location>
+        <Location>Caribbean</Location>
+        <Location>Central America</Location>
+        <Person>Jose Escalante</Person>
+    </document>
+    <document>
+        <docID>doc057</docID>
+        <docDate>31 July, 2002</docDate>
+        <docSource>doc057</docSource>
+        <docText>Further information provided by MI 5 regarding Muslih Odeh. MI 5 reports that there is no record of Odeh's having a British passport, but he may have a Saudi passport. He is known to be employed by the Freeport Star Hotel in Freeport, The Bahamas and is currently under surveillance.
+ </docText>
+        <Organization>MI 5</Organization>
+        <Organization>Freeport Star Hotel</Organization>
+        <Location>Saudi Arabia</Location>
+        <Location>Freeport</Location>
+        <Location>Bahamas</Location>
+        <Person>Muslih Odeh</Person>
+    </document>
+    <document>
+        <docID>doc058</docID>
+        <docDate>24 May, 2002</docDate>
+        <docSource>doc058</docSource>
+        <docText>MI 6 provided additional information on the Malaysian named Ali Sufaat. It is now known that Sufaat lives at 13 Step St. in Nassau, The Bahamas. It is also known that Sufaat now works as a deck hand on the Island Freight Lines that makes regular runs between Nassau and Santo Domingo. Sufaat has been under surveillance and has had several contacts with Omar Hanif at the Seashore Hotel in Nassau.
+ </docText>
+        <Date></Date>
+        <Organization>MI 6</Organization>
+        <Organization>Seashore Hotel</Organization>
+        <Location>13 Step St.</Location>
+        <Location>Nassau</Location>
+        <Location>Bahamas</Location>
+        <Location>Santo Domingo</Location>
+        <Person>Ali Sufaat</Person>
+    </document>
+    <document>
+        <docID>doc059</docID>
+        <docDate>1 November, 2002</docDate>
+        <docSource>doc059</docSource>
+        <docText>Adnan Hijazi booked a one-way air ticket for travel from Indianapolis to Washington D.C. for November 20, 2002.
+ </docText>
+        <Date>November 20, 2002</Date>
+        <Location>Indianapolis</Location>
+        <Location>Washington D.C.</Location>
+        <Person>Adnan Hijazi</Person>
+    </document>
+    <document>
+        <docID>doc060</docID>
+        <docDate>18 October, 2002</docDate>
+        <docSource>doc060</docSource>
+        <docText>The driver's license provided by Arnold C. and Kamel J. to the truck rental agencies in Boulder, Colorado and Macon, Georgia are not authentic. The address shown on these licenses do not exist.
+</docText>
+        <Location>Colorado</Location>
+        <Location>Boulder</Location>
+        <Location>Georgia</Location>
+        <Location>Macon</Location>
+        <Person>Kamel J.</Person>
+        <Person>Arnold C.</Person>
+    </document>
+</documents>
