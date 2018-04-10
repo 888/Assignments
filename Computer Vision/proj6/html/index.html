@@ -1,0 +1,378 @@
+<html>
+<head>
+<title>Deep Learning Project</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 1160px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td img {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1>Alan Chiang</h1>
+</div>
+</div>
+<div class="container">
+
+<h2> Project 6 / Deep Learning</h2>
+
+<div style="float: right; padding: 20px">
+<img src="placeholder.jpg" />
+<p style="font-size: 14px">Example of a right floating element.</p>
+</div>
+
+<p> 	In recent years, deep learning has replaced older methods of scene recognition like bag of features or spatial pyramid. This project in particular performs scene recognition through deep convolutional networks using the MatConvNet tollbox. Specifically, two approaches are used: first, training a deep convolutional network from scratch on a small set of training images, and second, fine-tuning a pre-trained deep convolutional network so as to use it on our own image set.</p>
+
+<ol>
+<li>Train from scratch</li>
+<li>Fine-tune existing</li>
+</ol>
+
+<div style="clear:both">
+<h3>Phase I</h3>
+
+<p> 	A deep convolutional network is composed of several layers, with the baseline (provided) network having four–convolutional, max pool, relu, and fully convolutional. For training purposes, a softmax loss layer is added on top on the other four. When run for 30 training epochs, this baseline network yields an accuracy of ~25%. To improve this several changes were made to the baseline network: </p>
+
+<ol>
+<li>Jitter input data</li>
+<li>Zero-center images</li>
+<li>Regularize the network</li>
+<li>Deepen the network</li>
+<li>Normalize batches</li>
+</ol>
+
+<p> 	The first stage, jittering input data, was implemented by generating a random series of integers between 1 and half the batch size and using these numbers as indices in the image array to left-right flip the images at those indices. Half of the time the random series was generated, the entire batch's images would be flipped left-right. The implementation is shown below: </p>
+<pre><code>
+im = imdb.images.data(:,:,:,batch);
+labels = imdb.images.labels(1,batch);
+
+r = randi([1 50],1,25);
+if (r(1) > 25)
+    r = 1:50;
+end
+for i=1:size(r)
+    im(:,:,1,r(i)) = fliplr(im(:,:,1,r(i))); %how to properly index to rth image?
+end
+</code></pre>
+
+<p> 	The second stage, zero-centering images, was a simple procuess of computing the mean image from the list of all images, then subtracting said mean from all the images. The implementation is shown below: </p>
+<pre><code>
+mean_image = mean(imdb.images.data,4);
+imdb.images.data = imdb.images.data - mean_image;
+</code></pre>
+
+<p> 	The third stage, regularizing the network,  was implemented by inserting a new layer into the deep convolutional network. Specifically, a dropout layer with a dropout rate of 0.5, inserted just before the fully convolutional layer. The implementation is shown below: </p>
+<pre><code>
+net.layers{end+1} = struct('type', 'dropout', 'rate', 0.5);
+</code></pre>
+
+<p> 	The fourth stage, deepening the network, was implemented by inserting three new layers into the deep convolutional network. Inserted after the existing relu layer was a new convolutional layer with a 5x5 spatial resolution, followed by a new max pool layer with a 3x3 sliding window and stride of 2, followed by a new relu layer. The spatial resolution of the preexisting convolutional layers were adjusted accordingly to match the additions. The implementation is shown below: </p>
+<pre><code>
+net.layers{end+1} = struct('type', 'conv', ...
+                           'weights', {{f*randn(5,5,10,12, 'single'), zeros(1, 12, 'single')}}, ...
+                           'stride', 1, ...
+                           'pad', 0, ...
+                           'name', 'conv2') ;
+
+net.layers{end+1} = struct('type', 'pool', ...
+                           'method', 'max', ...
+                           'pool', [3 3], ...
+                           'stride', 2, ...
+                           'pad', 0) ;
+
+net.layers{end+1} = struct('type', 'relu') ;
+</code></pre>
+
+<p> 	The fifth and final stage, normalizing batches, was implemented by inserting batch normalization layers into the network, each immediately after a convolutional layer. This was done by adding a layer_index counter which kept track of the layers' position, and then making a call to the provided insertBnorm(net, layer_index) function. After this stage, the network produced a Lowest validation erorr is 0.456000. The finalized implementation of the network is shown below: </p>
+<pre><code>
+net.layers = {} ;
+layer_index = 0;
+
+net.layers{end+1} = struct('type', 'conv', ...
+                           'weights', {{f*randn(9,9,1,10, 'single'), zeros(1, 10, 'single')}}, ...
+                           'stride', 1, ...
+                           'pad', 0, ...
+                           'name', 'conv1') ;
+layer_index = layer_index + 1;
+
+net = insertBnorm(net, layer_index);
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'pool', ...
+                           'method', 'max', ...
+                           'pool', [7 7], ...
+                           'stride', 2, ...
+                           'pad', 0) ;
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'relu') ;
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'conv', ...
+                           'weights', {{f*randn(5,5,10,12, 'single'), zeros(1, 12, 'single')}}, ...
+                           'stride', 1, ...
+                           'pad', 0, ...
+                           'name', 'conv2') ;
+layer_index = layer_index + 1;
+
+net = insertBnorm(net, layer_index);
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'pool', ...
+                           'method', 'max', ...
+                           'pool', [3 3], ...
+                           'stride', 2, ...
+                           'pad', 0) ;
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'relu') ;
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'dropout', 'rate', 0.5);
+layer_index = layer_index + 1;
+
+net.layers{end+1} = struct('type', 'conv', ...
+                           'weights', {{f*randn(10,10,12,15, 'single'), zeros(1, 15, 'single')}}, ...
+                           'stride', 1, ...
+                           'pad', 0, ...
+                           'name', 'fc1') ;
+layer_index = layer_index + 1;
+
+% Loss layer
+net.layers{end+1} = struct('type', 'softmaxloss') ;
+
+net = vl_simplenn_tidy(net);
+</code></pre>
+
+
+
+<h3>Phase II</h3>
+
+<p> 	The second approach involved fine-tuning the provided VGG network. This process was divided into two steps:
+	top1err: 0.117 top5err: 0.003</p>
+
+<ol>
+<li>Altering network layers</li>
+<li>Altering input processing</li>
+</ol>
+
+<p> 	The first step, altering the network layers, consisted of removing the existing fully convolutional eighth layer as well as the softmax layer, and then redefining them to output a filter depth of 15. Furthermore, two dropout layers were inserted, one between the sixth and seventh fully convolutional layers, and another between the seventh and eighth. The implementation is shown below: </p>
+
+<pre><code>
+net = load('../matconvnet-1.0-beta25/imagenet-vgg-f.mat') ;
+
+temp0 = net.layers{size(net.layers, 2) - 3};
+net.layers{size(net.layers, 2) - 3} = struct('type', 'dropout', 'rate', 0.5);
+
+temp1 = net.layers{size(net.layers, 2) - 2};
+net.layers{size(net.layers, 2) - 2} = temp0;
+
+temp0 = net.layers{size(net.layers, 2) - 1};
+net.layers{size(net.layers, 2) - 1} = temp1;
+
+temp1 = net.layers{size(net.layers, 2)};
+net.layers{size(net.layers, 2)} = struct('type', 'dropout', 'rate', 0.5);
+net.layers{size(net.layers, 2) + 1} = temp0;
+net.layers{size(net.layers, 2) + 1} = temp1;
+
+net.layers{size(net.layers, 2) - 1} = struct('type', 'conv', ...
+                           'weights', {{f*randn(1,1,4096,15, 'single'), zeros(1, 15, 'single')}}, ...
+                           'stride', 1, ...
+                           'pad', 0, ...
+                           'name', 'fc8') ;
+
+net.layers{size(net.layers, 2)} = struct('type', 'softmaxloss') ;
+</code></pre>
+
+<p> 	The second step, altering the input processing, consisted of resizing all input images to 224x224, then converting all of them to RGB instead of greyscale, then subtracting the mean image from all input images. The implementation is shown below: </p>
+
+<code><pre>
+for set = 1:length(sets)
+    for category = 1:length(categories)
+        cur_path = fullfile( SceneJPGsPath, sets{set}, categories{category});
+        cur_images = dir( fullfile( cur_path,  '*.jpg') );
+
+        if(set == 1)
+            fprintf('Taking %d out of %d images in %s\n', num_train_per_category, length(cur_images), cur_path);
+            cur_images = cur_images(1:num_train_per_category);
+        elseif(set == 2)
+            fprintf('Taking %d out of %d images in %s\n', num_test_per_category, length(cur_images), cur_path);
+            cur_images = cur_images(1:num_test_per_category);
+        end
+
+        for i = 1:length(cur_images)
+
+            cur_image = imread(fullfile(cur_path, cur_images(i).name));
+            cur_image = single(cur_image);
+            if(size(cur_image,3) == 1)
+                fprintf('color image found %s\n', fullfile(cur_path, cur_images(i).name));
+                cur_image = cat(3, cur_image, cur_image, cur_image);
+            end
+            cur_image = imresize(cur_image, image_size);
+
+            % Stack images into a large image_size x 1 x total_images matrix
+            % images.data
+            imdb.images.data(:,:,:,1,image_counter) = cur_image;
+            imdb.images.labels(  1,image_counter) = category;
+            imdb.images.set(     1,image_counter) = set; %1 for train, 2 for test (val)
+
+            image_counter = image_counter + 1;
+        end
+    end
+end
+
+mean_image = mean(imdb.images.data,5);
+imdb.images.data = imdb.images.data - mean_image;
+</code></pre>
+
+<h3>Results in a table</h3>
+
+<table border=1>
+<tr>
+<td>
+<img src="table.jpg" width="24%"/>
+<img src="graph.jpg"  width="24%"/>
+<img src="table2.jpg" width="24%"/>
+<img src="graph2.jpg" width="24%"/>
+</td>
+</tr>
+
+</table>
+
+<center>
+
+<img src="plot.png">
+<p>
+<img src="filters.png">
+
+</center>
+</div>
+</body>
+</html>
